@@ -8,6 +8,7 @@ jobs:
       - name: Init db
         run: |
           ./run.sh startdb
+          ./run.sh initdb products_db
           ./run.sh server -port=8010
 
       - name: Running tests
