@@ -11,7 +11,7 @@ jobs:
         run: |
           ./run.sh startdb
           ./run.sh initdb products_db
-          ./run.sh server -port=<port_number> # default: 8010
+          ./run.sh server -port=8010
 
       - name: Cleaning
         run: |
