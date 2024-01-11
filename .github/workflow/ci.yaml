@@ -1,0 +1,19 @@
+name: Ci Test
+on: push
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Postgres up 
+        run: docker compose up -d
+      - name: Test
+        run: |
+          ./run.sh startdb
+          ./run.sh initdb products_db
+          ./run.sh server -port=<port_number> # default: 8010
+
+      - name: Cleaning
+        run: |
+          ./run.sh stopdb
+          ./run.sh cleanup
