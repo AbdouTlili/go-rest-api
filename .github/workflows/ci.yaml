@@ -10,7 +10,6 @@ jobs:
           ./run.sh startdb
           sleep 6
           ./run.sh initdb products_db
-          ./run.sh server -port=8010
 
       - name: Running tests
         run: |
